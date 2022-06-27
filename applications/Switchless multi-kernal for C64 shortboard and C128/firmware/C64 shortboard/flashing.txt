@@ -1,0 +1,35 @@
+The fuses that needs to be burnt differs a bit depending on which microcontroller is being used.
+I have used the below fuses for ATmega328P but the same should be ok with 328 too.
+
+ATmega328/ATmega328P
+====================
+Lfuse FF
+Hfuse DE
+Efuse FD
+
+And for ATmega48A I have used the following which I think should be ok for all 48/88/168 variants:
+
+ATmega48/88/168
+================
+Lfuse FF
+Hfuse DD
+Efuse FE
+
+
+Some examples for using AVRDUDE to upload firmware using a USBASP programmer and burning the fuses at the same time:
+
+328P
+====
+avrdude.exe -C avrdude.conf -v -p atmega328p -c usbasp -U efuse:w:0xFD:m -U hfuse:w:0xDE:m -U lfuse:w:0xFF:m -U flash:w:c64short_328_328p.hex
+
+48/48A
+======
+avrdude.exe -C avrdude.conf -v -p atmega48 -c usbasp -U efuse:w:0xFE:m -U hfuse:w:0xDD:m -U lfuse:w:0xFF:m -U flash:w:c64short_48_48a.hex.hex
+
+48P/48PA
+======
+avrdude.exe -C avrdude.conf -v -p atmega48p -c usbasp -U efuse:w:0xFE:m -U hfuse:w:0xDD:m -U lfuse:w:0xFF:m -U flash:w:c64short_48p_48pa.hex
+
+88/88A
+======
+avrdude.exe -C avrdude.conf -v -p atmega88 -c usbasp -U efuse:w:0xFE:m -U hfuse:w:0xDD:m -U lfuse:w:0xFF:m -U flash:w:c64short_88_88a.hex
