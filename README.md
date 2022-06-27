@@ -1,8 +1,8 @@
-# Switchless Multi-ROM for 27128 & 27256
+# Switchless Multi-ROM for 27128 & 27256 ROMs
 
 <img src="rev4\images\pcb_render.png" alt="3D rendering" width="800"/><br/>
 
-A a switchless multi-ROM for 27128 and 27256 ROM (28-pin) type applications. The switch is controlled by an MCU that is picking up predefined magic words on the data bus.  
+A switchless multi-ROM for 27128 and 27256 ROM (28-pin) type applications. The switch is controlled by an MCU that is picking up predefined magic words on the data bus.  
 This is a more generic and further developed version of my previous 1541-II Multi-ROM design.
 
 Example use cases:
