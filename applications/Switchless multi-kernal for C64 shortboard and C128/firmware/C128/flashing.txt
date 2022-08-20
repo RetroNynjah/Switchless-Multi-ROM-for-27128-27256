@@ -24,7 +24,7 @@ avrdude.exe -C avrdude.conf -v -p atmega328p -c usbasp -U efuse:w:0xFD:m -U hfus
 
 48/48A
 ======
-avrdude.exe -C avrdude.conf -v -p atmega48 -c usbasp -U efuse:w:0xFE:m -U hfuse:w:0xDD:m -U lfuse:w:0xFF:m -U flash:w:c128_48_48a.hex.hex
+avrdude.exe -C avrdude.conf -v -p atmega48 -c usbasp -U efuse:w:0xFE:m -U hfuse:w:0xDD:m -U lfuse:w:0xFF:m -U flash:w:c128_48_48a.hex
 
 48P/48PA
 ======
