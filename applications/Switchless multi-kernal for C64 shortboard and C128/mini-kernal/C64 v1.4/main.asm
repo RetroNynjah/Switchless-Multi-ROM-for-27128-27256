@@ -3,6 +3,7 @@
 ; 1.1   Fixed bugs
 ; 1.2   Improved menu routines and added a sprite
 ; 1.3   Cleaned up code. Clear screen to avoid garbage during reset
+; 1.4   Added command for C128DCR
 
 CHARSET   2
 NOLOADADDR
@@ -200,11 +201,26 @@ sendasc lda cmdasc,x
         bne sendasc
         lda KRNIMG
         sta CMDADDR,x   ; send selected kernal image number to data bus
-        jmp sendcmd
+        ldx #$00
+sendascdcr
+        lda cmdascdcr,x
+        sta CMDADDR,x   ; write command string to data bus to be picked up by kernal switcher
+        inx
+        cpx #cmdascdcrend-cmdascdcr   ; length of command string
+        bne sendascdcr
+        lda KRNIMG
+        sta CMDADDR,x   ; send selected kernal image number to data bus
+        ldx #$00
+        jmp sendasc
 
 
-cmdasc  byte $52, $4e, $52, $4f, $4d, $36, $34, $23     ; ascii RNROM64# command for kernal switcher on address bus
+; ascii RNROM64# command for kernal switcher on data bus
+cmdasc  byte $52, $4e, $52, $4f, $4d, $36, $34, $23
 cmdascend
+; ascii RNROM128DCR# command for C128DCR combo switch
+cmdascdcr
+        byte $52, $4e, $52, $4f, $4d, $31, $32, $38, $44, $43, $52, $23
+cmdascdcrend
 
 
 mnutxt  ; Menu layout
@@ -212,7 +228,7 @@ mnutxt  ; Menu layout
         text '                                        '
         text '               RetroNinja               '
         text '                                        '
-        text '        C64 Kernal Switcher v1.3        '
+        text '        C64 Kernal Switcher v1.4        '
         text '                                        '
         text '                                        '
         ; Up to 10 menu choices. number of shown lines controlled by value in $kernalimages
