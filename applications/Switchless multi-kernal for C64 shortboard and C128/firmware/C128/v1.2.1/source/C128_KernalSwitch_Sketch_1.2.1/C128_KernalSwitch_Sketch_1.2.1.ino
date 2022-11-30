@@ -4,7 +4,7 @@
 #  Kernal switcher sketch for C128 shortboard (28-pin ROM)                              #
 #  To be used with the Retroninja 27128/27256 switchless multi-ROM in 27128 mode.       #
 #                                                                                       #
-#  Version 1.2                                                                          #
+#  Version 1.2.1                                                                          #
 #  https://github.com/retronynjah                                                       #
 #                                                                                       #
 #########################################################################################
@@ -154,7 +154,7 @@ void setup() {
   pinMode (ledPin, OUTPUT);
   
   pinMode (restorePin, INPUT); // Restore
-  digitalWrite(LED, LOW);
+  digitalWrite(ledPin, LOW);
   
   // retrieve last used ROM from ATmega EEPROM and switch ROM using ROM address pins A14-A18
   savedROM = EEPROM.read(0);
