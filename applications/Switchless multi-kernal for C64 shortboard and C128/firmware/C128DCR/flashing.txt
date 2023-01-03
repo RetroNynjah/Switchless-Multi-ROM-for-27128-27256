@@ -7,7 +7,7 @@ Lfuse FF
 Hfuse DE
 Efuse FD
 
-And for ATmega48A I have used the following which I think should be ok for all 48/88/168 variants:
+And for ATmega48A I have used the following which I think should be ok for all 48/88/168 variants except the PB variants
 
 ATmega48/88/168
 ================
@@ -15,21 +15,31 @@ Lfuse FF
 Hfuse DD
 Efuse FE
 
+This works for ATmega48PB. Haven't tried other PB variants.
+ATmega48PB (88PB/328PB too?)
+============================
+Lfuse E7
+Hfuse DD
+Efuse FE
 
-Some examples for using AVRDUDE to upload firmware using a USBASP programmer and burning the fuses at the same time:
-
-328P
-====
-avrdude.exe -C avrdude.conf -v -p atmega328p -c usbasp -U efuse:w:0xFD:m -U hfuse:w:0xDE:m -U lfuse:w:0xFF:m -U flash:w:c128dcr_328_328p.hex
+Some examples for using AVRDUDE to upload firmware using a USBASP programmer, setting inital image kernal image to 0 (mini-kernal) and burning the fuses at the same time:
 
 48/48A
 ======
-avrdude.exe -C avrdude.conf -v -p atmega48 -c usbasp -U efuse:w:0xFE:m -U hfuse:w:0xDD:m -U lfuse:w:0xFF:m -U flash:w:c128dcr_48_48a.hex
+avrdude.exe -C avrdude.conf -v -p atmega48 -c usbasp -U efuse:w:0xFE:m -U hfuse:w:0xDD:m -U lfuse:w:0xFF:m -U eeprom:w:0x00:m -U flash:w:c128dcr_48_48a.hex
 
 48P/48PA
 ======
-avrdude.exe -C avrdude.conf -v -p atmega48p -c usbasp -U efuse:w:0xFE:m -U hfuse:w:0xDD:m -U lfuse:w:0xFF:m -U flash:w:c128dcr_48p_48pa.hex
+avrdude.exe -C avrdude.conf -v -p atmega48p -c usbasp -U efuse:w:0xFE:m -U hfuse:w:0xDD:m -U lfuse:w:0xFF:m -U eeprom:w:0x00:m -U flash:w:c128dcr_48p_48pa_48pb.hex
+
+48PB
+======
+avrdude.exe -C avrdude.conf -v -p atmega48pb -c usbasp -U efuse:w:0xFE:m -U hfuse:w:0xDD:m -U lfuse:w:0xE7:m -U eeprom:w:0x00:m -U flash:w:c128dcr_48p_48pa_48pb.hex
 
 88/88A
 ======
-avrdude.exe -C avrdude.conf -v -p atmega88 -c usbasp -U efuse:w:0xFE:m -U hfuse:w:0xDD:m -U lfuse:w:0xFF:m -U flash:w:c128dcr_88_88a.hex
+avrdude.exe -C avrdude.conf -v -p atmega88 -c usbasp -U efuse:w:0xFE:m -U hfuse:w:0xDD:m -U lfuse:w:0xFF:m -U eeprom:w:0x00:m -U flash:w:c128dcr_88_88a.hex
+
+328P
+====
+avrdude.exe -C avrdude.conf -v -p atmega328p -c usbasp -U efuse:w:0xFD:m -U hfuse:w:0xDE:m -U lfuse:w:0xFF:m -U eeprom:w:0x00:m -U flash:w:c128dcr_328_328p_328pb.hex
