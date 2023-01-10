@@ -6,7 +6,7 @@ A switchless multi-ROM for 27128 and 27256 ROM (28-pin) type applications. The s
 This is a more generic and further developed version of my previous 1541-II Multi-ROM design.
 
 Example use cases:
-* ROM switch for the Commodore 1541-II disk drive controlled by DOS commands.
+* ROM switch for Commodore disk drives controlled by DOS commands.
 * Menu driven Kernal switch for Commodore C64 (shortboards) and Commodore C128
 * You tell me
 
