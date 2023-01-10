@@ -1,0 +1,1 @@
+The contents of this folder has been moved to https://github.com/RetroNynjah/Switchless-Multi-ROM-for-27128-27256/tree/main/applications/Switchless%20multi-ROM%20for%20CBM%20disk%20drives
