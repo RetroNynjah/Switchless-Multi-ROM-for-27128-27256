@@ -7,7 +7,7 @@ This is a more generic and further developed version of my previous 1541-II Mult
 
 Example use cases:
 * ROM switch for Commodore disk drives controlled by DOS commands.
-* Menu driven Kernal switch for Commodore C64 (shortboards) and Commodore C128
+* Menu driven Kernal switch for Commodore C64 (shortboards), Commodore C128 and Commodore TED series.
 * You tell me
 
 Check the Applications folder for examples on how to use it for the use cases above.
